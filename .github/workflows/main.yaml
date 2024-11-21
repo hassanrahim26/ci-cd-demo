@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-  pull_request:
+  pull _request:
     branches:
       - main
 
@@ -25,13 +25,13 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run tests
-        run: npm test run
+      - name: Run test
+        run: npm run test
 
       - name: Build project
         run: npm run build
 
-      - name: Upload production-ready build files
+      - name: Upload production-ready files
         uses: actions/upload-artifact@v4
         with:
           name: production-files
@@ -47,10 +47,10 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
-          name: production-files
+          name: production_files
           path: "./dist"
 
-      - name: Deploy to GitHub pages
+      - name: Deploy to github pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.TOKEN }}
